@@ -1,0 +1,9 @@
+﻿<div class="nova-field--control">
+  <label [attr.for]="id" class="nova-field--control--label">
+    {{ label }}
+  </label>
+  <ng-content select="[as='input']"></ng-content>
+</div>
+<div class="nova-field--errors">
+  <ng-content select="[as='error']"></ng-content>
+</div>

@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+:host {
+  display: block;
+
+  font-family: $font-family;
+  font-size: $font-size;
+
+  .nova-field {
+    &--control {
+      display: flex;
+      flex-wrap: wrap;
+
+      &--label {
+        color: rgba($color: #000000, $alpha: 0.66);
+        width: 100%;
+        font-size: 12pt;
+        font-weight: 400;
+        padding: 8px 0;
+      }
+
+      // &--input { }
+      // see below, :host /deep/ input
+    }
+
+    &--errors {
+      padding: 8px 0;
+      font-size: 12pt;
+      font-weight: 400;
+      color: $color-failure;
+    }
+  }
+}
+
+:host ::ng-deep [as='input'] {
+  width: 100%;
+}
