@@ -61,15 +61,4 @@
     z-index: -1;
     position: relative;
   }
-
-  &.readony,
-  &[readonly='true'] {
-    .nova-checkbox {
-      &--checkbox {
-        pointer-events: none;
-        background-image: url('../../assets/icons/nova-controls--checkbox.svg');
-        background-size: 24px 24px;
-      }
-    }
-  }
 }

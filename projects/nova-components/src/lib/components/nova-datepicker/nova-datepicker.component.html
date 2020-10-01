@@ -1,0 +1,110 @@
+<div #head class="nova-datepicker--head">
+  <div class="nova-datepicker--head--text" [class.color-secondary]="!value">
+    {{ label }}
+  </div>
+  <div
+    (click)="clearDate($event)"
+    class="nova-datepicker--head--icon"
+    [class.icon-calendar]="!value"
+    [class.icon-clear]="value"
+  ></div>
+</div>
+<div #body class="nova-datepicker--body" [class.expanded]="_expanded">
+  <div class="nova-datepicker--body--tiles">
+    <div class="nova-datepicker--body--tiles--top">
+      <div class="nova-datepicker--body--tiles--top--current">
+        <div
+          class="nova-datepicker--body--tiles--top--current--date"
+          (click)="bottomSlideShown = true"
+        >
+          {{ datelogic.guiYearLabel }},
+          {{ datelogic.guiMonthLabel.fullLabel }}
+        </div>
+        <button
+          class="nova-datepicker--body--tiles--top--current--action-prev"
+          (click)="monthPrev()"
+        ></button>
+        <button
+          class="nova-datepicker--body--tiles--top--current--action-next"
+          (click)="monthNext()"
+        ></button>
+      </div>
+      <div class="nova-datepicker--body--tiles--top--weekdays">
+        <div
+          class="nova-datepicker--body--tiles--top--weekdays--item"
+          *ngFor="let item of datelogic.guiLocalizedDaysOfWeek"
+          [attr.title]="item.fullLabel"
+        >
+          {{ item.shortLabel }}
+        </div>
+      </div>
+      <div class="nova-datepicker--body--tiles--top--monthdays">
+        <div
+          class="nova-datepicker--body--tiles--top--monthdays--item"
+          [class.leading]="true"
+          [class.weekend]="datelogic.isWeekEnd(datelogic.toDate(0, -1, item))"
+          [class.disabled]="true"
+          [class.selected]="datelogic.isSelected(datelogic.toDate(0, -1, item))"
+          (click)="datelogic.guiUpdateMonthPrev()"
+          *ngFor="let item of datelogic.guiLeadingDays"
+        >
+          {{ item }}
+        </div>
+        <div
+          class="nova-datepicker--body--tiles--top--monthdays--item"
+          [class.selected]="datelogic.isSelected(datelogic.toDate(0, 0, item))"
+          [class.weekend]="datelogic.isWeekEnd(datelogic.toDate(0, 0, item))"
+          [class.disabled]="datelogic.isDisabled(datelogic.toDate(0, 0, item))"
+          (click)="selectDate(datelogic.toDate(0, 0, item))"
+          *ngFor="let item of datelogic.guiDays"
+        >
+          {{ item }}
+        </div>
+        <div
+          class="nova-datepicker--body--tiles--top--monthdays--item"
+          [class.trailing]="true"
+          [class.weekend]="datelogic.isWeekEnd(datelogic.toDate(0, +1, item))"
+          [class.disabled]="true"
+          [class.selected]="datelogic.isSelected(datelogic.toDate(0, +1, item))"
+          (click)="datelogic.guiUpdateMonthNext()"
+          *ngFor="let item of datelogic.guiTrailingDays"
+        >
+          {{ item }}
+        </div>
+      </div>
+    </div>
+    <div
+      class="nova-datepicker--body--tiles--bottom"
+      [class.shown]="bottomSlideShown"
+    >
+      <div
+        class="nova-datepicker--body--tiles--bottom--shadow"
+        (click)="bottomSlideShown = false"
+      ></div>
+      <div class="nova-datepicker--body--tiles--bottom--lists">
+        <div
+          class="nova-datepicker--body--tiles--bottom--lists--action"
+          (click)="bottomSlideShown = false"
+        ></div>
+        <div class="nova-datepicker--body--tiles--bottom--lists--years">
+          <div
+            class="nova-datepicker--body--tiles--bottom--lists--years--item"
+            *ngFor="let item of datelogic.settings.years"
+            (click)="yearSet(item); bottomSlideShown = false"
+          >
+            {{ item }}
+          </div>
+        </div>
+        <div class="nova-datepicker--body--tiles--bottom--lists--months">
+          <div
+            class="nova-datepicker--body--tiles--bottom--lists--months--item"
+            *ngFor="let item of datelogic.settings.months"
+            (click)="monthSet(item.value); bottomSlideShown = false"
+          >
+            {{ item.fullLabel }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

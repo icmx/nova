@@ -1,0 +1,358 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/units';
+@import '../../styles/resets.scss';
+
+.color-secondary {
+  color: rgba($color: #000000, $alpha: 0.66);
+}
+
+.color-primary {
+  color: rgba($color: #000000, $alpha: 0.88);
+}
+
+.icon-calendar {
+  background-size: 14px 14px;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z" fill="%23575757"/%3E%3Cpath fill="none" d="M0 0h24v24H0z"/%3E%3C/svg%3E');
+}
+
+.icon-clear {
+  background-size: 18px 18px;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="%23575757"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+}
+
+:host {
+  display: inline-block;
+  width: 245px;
+
+  font-family: $font-family;
+  font-size: $font-size;
+
+  .nova-datepicker {
+    &--head {
+      display: inline-block;
+      height: 48px;
+      line-height: 48px;
+      width: 100%;
+
+      display: inline-flex;
+      justify-content: space-between;
+
+      border: solid 1px rgba($color: #000000, $alpha: 0.11);
+      border-radius: 4px;
+
+      cursor: pointer;
+      user-select: none;
+
+      &--text {
+        padding: 0px 12px;
+      }
+
+      &--text-secondary {
+        color: rgba($color: #000000, $alpha: 0.44);
+      }
+
+      &--icon {
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+
+      &--icon:hover {
+        background-color: $color-input-ghost-hover;
+      }
+
+      &--icon:active {
+        background-color: $color-input-ghost-active;
+      }
+    }
+
+    &--head:hover {
+      border: solid 1px rgba($color: #000000, $alpha: 0.16);
+    }
+
+    &--body {
+      position: absolute;
+      padding: 4px 0 0 0;
+
+      border: solid 1px $color-input-border;
+      border-radius: 4px;
+      background-color: $color-white;
+
+      box-shadow: $shadow-medium;
+
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px) scaleY(0.8);
+
+      transform-origin: top;
+      margin-top: 8px;
+      margin-bottom: 16px;
+
+      &--tiles {
+        height: 292px;
+        overflow: hidden;
+
+        &--top {
+          padding: 4px;
+
+          &--current {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 4px;
+
+            display: flex;
+            justify-content: space-between;
+
+            &--date {
+              display: inline-block;
+              padding: 0 4px;
+              border-radius: 4px;
+              font-size: 18pt;
+              font-weight: 400;
+              color: $color-primary-light;
+
+              transition: background-color 0.2s;
+
+              cursor: pointer;
+              user-select: none;
+            }
+
+            &--date:hover {
+              background-color: $color-input-ghost-hover;
+            }
+
+            &--date:active {
+              background-color: $color-input-ghost-active;
+            }
+
+            &--action-prev {
+              margin-left: auto;
+              background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M14 7l-5 5 5 5V7z" fill="%23575757"/%3E%3Cpath fill="none" d="M24 0v24H0V0h24z"/%3E%3C/svg%3E');
+            }
+
+            &--action-next {
+              margin-left: 4px;
+              background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M10 17l5-5-5-5v10z" fill="%23575757"/%3E%3Cpath fill="none" d="M0 24V0h24v24H0z"/%3E%3C/svg%3E');
+            }
+
+            &--action-prev,
+            &--action-next {
+              display: inline-block;
+
+              display: inline-block;
+              height: 40px;
+              width: 40px;
+              background-color: transparent;
+              border-radius: 4px;
+              background-position: center;
+              background-repeat: no-repeat;
+
+              transition: background-color 0.2s;
+            }
+
+            &--action-prev:hover,
+            &--action-next:hover {
+              background-color: $color-input-ghost-hover;
+            }
+
+            &--action-prev:active,
+            &--action-next:active {
+              background-color: $color-input-ghost-active;
+            }
+          }
+
+          &--weekdays {
+            &--item {
+              font-size: 12pt;
+              display: inline-block;
+
+              font-weight: 500;
+
+              opacity: 0.4;
+
+              text-align: center;
+              line-height: 28px;
+              height: 28px;
+              width: 30px;
+              border: solid 2px transparent;
+
+              user-select: none;
+            }
+          }
+
+          &--monthdays {
+            width: 238px;
+
+            &--item {
+              font-size: 12pt;
+              display: inline-block;
+
+              text-align: center;
+              line-height: 30px;
+              height: 30px;
+              width: 30px;
+
+              border-width: 2px;
+              border-style: solid;
+              border-color: transparent;
+
+              border-radius: 50%;
+              transition: border-color 0.2s, border-radius 0.2s,
+                background-color 0.2s;
+
+              user-select: none;
+              cursor: pointer;
+            }
+
+            &--item:hover {
+              border-radius: 50%;
+              border-color: rgba($color: #000000, $alpha: 0.44);
+              background-color: $color-input-ghost-hover;
+            }
+
+            &--item:active {
+              border-color: $color-primary;
+              background-color: $color-input-ghost-active;
+            }
+
+            &--item.weekend {
+              color: $color-primary-light;
+              font-weight: 500;
+            }
+
+            // TODO
+            // &--item.default {
+            //   text-decoration: underline solid;
+            // }
+
+            &--item.disabled {
+              opacity: 0.4;
+            }
+
+            &--item.selected {
+              border-color: $color-primary;
+            }
+          }
+        }
+
+        &--bottom {
+          transform: scaleY(0.6);
+          transition: transform 0.4s;
+
+          background-image: linear-gradient(
+            to bottom,
+            transparent 28px,
+            rgba(0, 0, 0, 0.66) 140px
+          );
+
+          &--shadow {
+            width: 100%;
+            height: calc(284px - 236px);
+          }
+
+          &--lists {
+            // padding: 4px;
+            background-color: $color-white;
+            height: 232px;
+            border-top: solid 1px $color-input-border;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+
+            &--action {
+              background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="%23575757"/%3E%3Cpath fill="none" d="M0 0h24v24H0V0z"/%3E%3C/svg%3E');
+              background-position: center center;
+              background-repeat: no-repeat;
+              height: 28px;
+              border-radius: 4px;
+              margin: 8px;
+              background-size: 18px 18px;
+
+              transition: background-color 0.2s;
+            }
+
+            &--action:hover {
+              background-color: $color-input-ghost-hover;
+            }
+
+            &--action:active {
+              background-color: $color-input-ghost-active;
+            }
+
+            &--years,
+            &--months {
+              display: inline-block;
+              overflow-y: scroll;
+              height: calc(100% - 36px);
+              width: 50%;
+
+              &--item {
+                padding: 0 8px;
+                line-height: 48px;
+                height: 48px;
+                border-radius: 4px;
+
+                background-color: transparent;
+                cursor: pointer;
+
+                transition: background-color 0.2s;
+              }
+
+              &--item:hover {
+                background-color: $color-input-ghost-hover;
+              }
+
+              &--item:active {
+                background-color: $color-input-ghost-active;
+              }
+            }
+          }
+        }
+
+        &--bottom.shown {
+          transform: translateY(-100%) scaleY(1);
+        }
+      }
+    }
+
+    &--body.expanded {
+      opacity: 1;
+      pointer-events: unset;
+      transform: translateY(0px) scaleY(1);
+    }
+
+    &--body::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      transform: rotate(45deg);
+      background-color: $color-white;
+
+      border-top: solid 1px rgba(0, 0, 0, 0.22);
+      border-left: solid 1px rgba(0, 0, 0, 0.22);
+      top: -6px;
+      left: 18px;
+    }
+  }
+}
+
+:host.ng-touched.ng-invalid {
+  .nova-datepicker--head {
+    border-color: $color-failure;
+  }
+}
+
+:host:hover.ng-touched.ng-invalid {
+  .nova-datepicker--head:hover {
+    border-color: $color-failure-light;
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../../styles/colors.scss';
+
+.body {
+  transform-origin: top;
+  margin-top: 8px;
+}
+
+.body.collapsed {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-16px) scaleY(0.8);
+}
+
+.body.expanded {
+  opacity: 1;
+  pointer-events: unset;
+  transform: translateY(0px) scaleY(1);
+}
+
+.body::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background-color: $color-white;
+}
+
+.body.bottom::before {
+  border-top: solid 1px rgba(0, 0, 0, 0.22);
+  border-left: solid 1px rgba(0, 0, 0, 0.22);
+  top: -6px;
+  left: 18px;
+}
