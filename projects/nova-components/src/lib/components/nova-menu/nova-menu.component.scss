@@ -1,0 +1,66 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/units.scss';
+
+:host {
+  display: inline-block;
+  height: 48px;
+
+  font-family: $font-family;
+  font-size: $font-size;
+
+  .nova-menu {
+    &--head {
+      display: flex;
+      border: 1px solid transparent;
+    }
+
+    &--body {
+      padding: 8px 0;
+      display: inline-block;
+      position: absolute;
+      background-color: $color-white;
+
+      border: solid 1px $color-input-border;
+      box-shadow: $shadow-medium;
+
+      margin-top: 8px;
+      border-radius: 4px;
+
+      transition: opacity 0.2s, transform 0.2s;
+
+      transform-origin: top;
+      margin-top: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px) scaleY(0.8);
+    }
+
+    &--body.expanded {
+      opacity: 1;
+      pointer-events: unset;
+      transform: translateY(0px) scaleY(1);
+    }
+
+    &--body::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      transform: rotate(45deg);
+      background-color: $color-white;
+      border-top: solid 1px $color-input-border;
+      border-left: solid 1px $color-input-border;
+      top: -6px;
+    }
+
+    &--body.left::before {
+      left: 18px;
+    }
+
+    &--body.right::before {
+      right: 18px;
+    }
+  }
+}

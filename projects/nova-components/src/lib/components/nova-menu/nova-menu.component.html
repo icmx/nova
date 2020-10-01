@@ -1,0 +1,12 @@
+<div #head class="nova-menu--head" (click)="toggleBody()">
+  <ng-content select="nova-menu-item[as='head']"></ng-content>
+</div>
+<div
+  #body
+  class="nova-menu--body"
+  [class.expanded]="_expanded"
+  [class.left]="direction === 'left'"
+  [class.right]="direction === 'right'"
+>
+  <ng-content select="nova-menu-item[as='body']"></ng-content>
+</div>

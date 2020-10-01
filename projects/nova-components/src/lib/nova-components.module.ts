@@ -8,6 +8,8 @@ import { NovaDatepickerComponent } from './components/nova-datepicker/nova-datep
 import { NovaDropdownComponent } from './components/nova-dropdown/nova-dropdown.component';
 import { NovaFieldComponent } from './components/nova-field/nova-field.component';
 import { NovaFiledropComponent } from './components/nova-filedrop/nova-filedrop.component';
+import { NovaMenuItemComponent } from './components/nova-menu-item/nova-menu-item.component';
+import { NovaMenuComponent } from './components/nova-menu/nova-menu.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -18,6 +20,8 @@ import { NovaFiledropComponent } from './components/nova-filedrop/nova-filedrop.
     NovaDropdownComponent,
     NovaFieldComponent,
     NovaFiledropComponent,
+    NovaMenuItemComponent,
+    NovaMenuComponent,
   ],
   declarations: [
     NovaButtonComponent,
@@ -26,6 +30,8 @@ import { NovaFiledropComponent } from './components/nova-filedrop/nova-filedrop.
     NovaDropdownComponent,
     NovaFieldComponent,
     NovaFiledropComponent,
+    NovaMenuItemComponent,
+    NovaMenuComponent,
   ],
 })
 export class NovaComponentsModule {}

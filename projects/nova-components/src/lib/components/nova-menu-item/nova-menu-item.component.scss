@@ -1,0 +1,57 @@
+@import '../../styles/colors.scss';
+
+:host {
+  a {
+    height: 48px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    color: $color-text-dark-primary;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+
+    white-space: nowrap;
+  }
+
+  a .nova-menu-item--icon {
+    display: none;
+    // display: inline-block; // THIS IS NOT IMPLEMENTED YET
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+
+    border-radius: 50%;
+    background-color: rgba($color: red, $alpha: 0.32);
+  }
+
+  a .nova-menu-item--text {
+    display: inline-block;
+    margin: 0 8px;
+  }
+}
+
+:host {
+  a:hover {
+    text-decoration: none;
+    color: $color-primary;
+    background-color: transparent;
+  }
+
+  a:active {
+    transform: translateY(4px);
+    background-color: transparent;
+  }
+}
+
+:host {
+  a.left {
+    flex-direction: row;
+  }
+
+  a.right {
+    flex-direction: row-reverse;
+  }
+}
