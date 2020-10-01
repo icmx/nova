@@ -1,0 +1,46 @@
+$color-primary: #3f51b5;
+$color-primary-light: lighten($color-primary, 8%);
+$color-primary-dark: darken($color-primary, 8%);
+
+$color-failure: #f44336;
+$color-failure-light: lighten($color-failure, 8%);
+$color-failure-dark: darken($color-failure, 8%);
+
+$color-warning: #ffeb3b;
+$color-warning-light: lighten($color-warning, 8%);
+$color-warning-dark: darken($color-warning, 8%);
+
+$color-success: #4caf50;
+$color-success-light: lighten($color-success, 8%);
+$color-success-dark: darken($color-success, 8%);
+
+// 50 shades of black:
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-text-dark-primary: rgba($color-black, 0.88);
+$color-text-dark-secondary: rgba($color-black, 0.66);
+$color-text-dark-tetriary: rgba($color-black, 0.44);
+
+$color-text-light-primary: rgba($color-white, 0.88);
+$color-text-light-secondary: rgba($color-white, 0.66);
+$color-text-light-tetriary: rgba($color-white, 0.44);
+
+$color-shading-base: $color-black;
+$color-shading-1: rgba($color-black, 0.88);
+$color-shading-2: rgba($color-black, 0.66);
+$color-shading-3: rgba($color-black, 0.44);
+$color-shading-4: rgba($color-black, 0.22);
+$color-shading-5: rgba($color-black, 0.11);
+$color-shading-6: rgba($color-black, 0.08);
+$color-shading-7: rgba($color-black, 0.04);
+
+$color-input-ghost: $color-shading-6;
+$color-input-ghost-hover: $color-shading-5;
+$color-input-ghost-active: $color-shading-4;
+$color-input-border: $color-shading-4;
+$color-input-border-hover: 0;
+$color-input-border-active: 0;
+$color-input-underline: $color-shading-1;
+$color-separator: $color-shading-5;

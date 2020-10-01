@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NovaButtonComponent } from './components/nova-button/nova-button.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
+  exports: [NovaButtonComponent],
+  declarations: [NovaButtonComponent],
 })
-export class NovaComponentsModule { }
+export class NovaComponentsModule {}

@@ -1,0 +1,130 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+a {
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 16px;
+  word-wrap: none;
+
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 4px;
+
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+:host {
+  user-select: none;
+  display: inline-block;
+
+  font-family: $font-family;
+  font-size: $font-size;
+
+  transition: transform 0.2s, opacity 0.4s;
+
+  & a,
+  &.primary a,
+  &.success a,
+  &.warning a,
+  &.failure a {
+    color: $color-white;
+    font-weight: 200;
+  }
+
+  & a,
+  &.primary a {
+    background-color: $color-primary;
+  }
+  &.success a {
+    background-color: $color-success;
+  }
+  &.warning a {
+    background-color: $color-warning;
+  }
+  &.failure a {
+    background-color: $color-failure;
+  }
+
+  &.primary-ghost a,
+  &.success-ghost a,
+  &.warning-ghost a,
+  &.failure-ghost a {
+    background-color: $color-input-ghost;
+    font-weight: 400;
+  }
+
+  &.primary-ghost a {
+    color: $color-primary;
+  }
+  &.success-ghost a {
+    color: $color-success;
+  }
+  &.warning-ghost a {
+    color: $color-warning;
+  }
+  &.failure-ghost a {
+    color: $color-failure;
+  }
+}
+
+:host:hover {
+  & a,
+  &.primary a {
+    background-color: $color-primary-light;
+  }
+  &.success a {
+    background-color: $color-success-light;
+  }
+  &.warning a {
+    background-color: $color-warning-light;
+  }
+  &.failure a {
+    background-color: $color-failure-light;
+  }
+
+  &.primary-ghost a,
+  &.success-ghost a,
+  &.warning-ghost a,
+  &.failure-ghost a {
+    background-color: $color-input-ghost-hover;
+  }
+}
+
+:host:active {
+  & a,
+  &.primary a {
+    background-color: $color-primary-dark;
+  }
+  &.success a {
+    background-color: $color-success-dark;
+  }
+  &.warning a {
+    background-color: $color-warning-dark;
+  }
+  &.failure a {
+    background-color: $color-failure-dark;
+  }
+
+  &.primary-ghost a,
+  &.success-ghost a,
+  &.warning-ghost a,
+  &.failure-ghost a {
+    background-color: $color-input-ghost-active;
+  }
+}
+
+:host[disabled='true'] {
+  opacity: 0.44;
+  pointer-events: none;
+
+  z-index: -1;
+  position: relative;
+}
