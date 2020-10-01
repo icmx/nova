@@ -8,3 +8,4 @@ Library includes:
   - Datepicker
   - Dropdown (with typeahead)
   - Field
+  - Filedrop

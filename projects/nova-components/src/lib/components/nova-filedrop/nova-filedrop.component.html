@@ -1,0 +1,20 @@
+﻿<div class="nova-filedrop--controls">
+  <div class="nova-filedrop--controls--button">
+    {{ buttonText }}
+  </div>
+  <div class="nova-filedrop--controls--label">
+    {{ fileText }}
+  </div>
+</div>
+<div class="nova-filedrop--dropzone" [class.expanded]="expanded">
+  {{ zoneText }}
+</div>
+<input
+  #input
+  type="file"
+  [attr.name]="name"
+  [attr.multiple]="multiple ? true : null"
+  [attr.accept]="accept"
+  [hidden]="true"
+  (change)="updateValue($event)"
+/>

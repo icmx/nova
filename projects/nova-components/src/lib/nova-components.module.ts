@@ -7,6 +7,7 @@ import { NovaCheckboxComponent } from './components/nova-checkbox/nova-checkbox.
 import { NovaDatepickerComponent } from './components/nova-datepicker/nova-datepicker.component';
 import { NovaDropdownComponent } from './components/nova-dropdown/nova-dropdown.component';
 import { NovaFieldComponent } from './components/nova-field/nova-field.component';
+import { NovaFiledropComponent } from './components/nova-filedrop/nova-filedrop.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -16,6 +17,7 @@ import { NovaFieldComponent } from './components/nova-field/nova-field.component
     NovaDatepickerComponent,
     NovaDropdownComponent,
     NovaFieldComponent,
+    NovaFiledropComponent,
   ],
   declarations: [
     NovaButtonComponent,
@@ -23,6 +25,7 @@ import { NovaFieldComponent } from './components/nova-field/nova-field.component
     NovaDatepickerComponent,
     NovaDropdownComponent,
     NovaFieldComponent,
+    NovaFiledropComponent,
   ],
 })
 export class NovaComponentsModule {}

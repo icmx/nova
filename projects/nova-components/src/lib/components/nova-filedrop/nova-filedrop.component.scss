@@ -1,0 +1,101 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/units.scss';
+
+:host {
+  display: inline-block;
+
+  font-family: $font-family;
+  font-size: $font-size;
+
+  line-height: 48px;
+  white-space: nowrap;
+
+  background-color: $color-input-ghost;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+
+  .nova-filedrop {
+    &--controls {
+      display: flex;
+
+      user-select: none;
+      cursor: pointer;
+
+      &--button {
+        background-color: $color-primary;
+        border-radius: 4px;
+        padding: 0 16px;
+        font-weight: 200;
+
+        color: #ffffff;
+      }
+
+      &--label {
+        flex-grow: 1;
+        padding: 0 16px;
+      }
+    }
+
+    &--dropzone {
+      width: 480px;
+      height: 160px;
+      position: absolute;
+      padding: 0 16px;
+
+      box-sizing: border-box;
+      border-radius: 4px;
+
+      margin-top: 8px;
+
+      text-align: center;
+      line-height: 160px;
+      font-size: 16pt;
+
+      background-color: $color-white;
+      border: solid 1px $color-separator;
+      color: $color-shading-3;
+
+      cursor: default;
+      user-select: none;
+
+      box-shadow: $shadow-medium;
+
+      transition: transform 0.4s;
+      transform-origin: top;
+
+      z-index: 1000;
+
+      transform: scaleY(0);
+    }
+
+    &--dropzone::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      transform: rotate(45deg);
+      background-color: $color-white;
+      border-top: solid 1px $color-input-border;
+      border-left: solid 1px $color-input-border;
+      top: -6px;
+      left: 34px;
+    }
+
+    &--dropzone.expanded {
+      transform: scaleY(1);
+    }
+  }
+
+  .file {
+    display: inline-block;
+    padding: 0 16px;
+
+    user-select: none;
+  }
+}
+
+:host:hover {
+  background-color: $color-input-ghost-hover;
+}
