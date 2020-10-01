@@ -10,6 +10,7 @@ import { NovaFieldComponent } from './components/nova-field/nova-field.component
 import { NovaFiledropComponent } from './components/nova-filedrop/nova-filedrop.component';
 import { NovaMenuItemComponent } from './components/nova-menu-item/nova-menu-item.component';
 import { NovaMenuComponent } from './components/nova-menu/nova-menu.component';
+import { NovaRadioComponent } from './components/nova-radio/nova-radio.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -22,6 +23,7 @@ import { NovaMenuComponent } from './components/nova-menu/nova-menu.component';
     NovaFiledropComponent,
     NovaMenuItemComponent,
     NovaMenuComponent,
+    NovaRadioComponent,
   ],
   declarations: [
     NovaButtonComponent,
@@ -32,6 +34,7 @@ import { NovaMenuComponent } from './components/nova-menu/nova-menu.component';
     NovaFiledropComponent,
     NovaMenuItemComponent,
     NovaMenuComponent,
+    NovaRadioComponent,
   ],
 })
 export class NovaComponentsModule {}

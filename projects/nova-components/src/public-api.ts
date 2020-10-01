@@ -11,4 +11,4 @@ export * from './lib/components/nova-field/nova-field.component';
 export * from './lib/components/nova-filedrop/nova-filedrop.component';
 export * from './lib/components/nova-menu-item/nova-menu-item.component';
 export * from './lib/components/nova-menu/nova-menu.component';
-
+export * from './lib/components/nova-radio/nova-radio.component';

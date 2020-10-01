@@ -1,0 +1,13 @@
+﻿<div class="nova-radio--radio" [class.checked]="checked"></div>
+<div class="nova-radio--content">
+  <ng-content></ng-content>
+</div>
+<input
+  type="radio"
+  #radio
+  [name]="name"
+  [value]="value"
+  [checked]="checked"
+  [hidden]="true"
+  (change)="onChange($event)"
+/>

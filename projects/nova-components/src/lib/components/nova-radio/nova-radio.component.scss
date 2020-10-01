@@ -1,0 +1,64 @@
+@import '../../styles/colors.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+
+  user-select: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+
+  & .nova-radio {
+    &--radio {
+      display: inline-block;
+      border-radius: 4px;
+      width: 48px;
+      min-width: 48px;
+      height: 48px;
+      min-height: 48px;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="%23575757"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: center;
+
+      transition: background-color 0.2s, background-size 0.08s;
+    }
+  }
+
+  &:hover .nova-radio {
+    &--radio {
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="%233f51b5"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+      background-color: $color-input-ghost-hover;
+    }
+  }
+
+  &:active .nova-radio {
+    &--radio {
+      background-color: $color-input-ghost-active;
+      background-size: 20px 20px;
+    }
+  }
+
+  & .nova-radio {
+    &--radio.checked {
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="%233f51b5"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+    }
+  }
+
+  & .nova-radio {
+    &--content {
+      display: inline-block;
+      padding: 0 16px 0 8px;
+    }
+  }
+
+  &.disabled,
+  &[disabled='true'] {
+    opacity: 0.44;
+    pointer-events: none;
+
+    z-index: -1;
+    position: relative;
+  }
+}
