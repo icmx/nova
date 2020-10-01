@@ -1,0 +1,52 @@
+@import '../../styles/colors.scss';
+
+:host {
+  height: 48px;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
+  padding: 0 8px;
+  box-sizing: border-box;
+  line-height: 48px;
+  border-radius: 4px;
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 0px;
+  opacity: 0;
+
+  transition: margin-top 0.4s, margin-bottom 0.4s, height 0.4s, opacity 0.4s;
+}
+
+:host.expanded {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: 48px;
+  opacity: 1;
+
+  color: darken($color-primary, 32%);
+  background-color: lighten($color-primary, 16%);
+
+  &.primary {
+    color: darken($color-primary, 32%);
+    background-color: lighten($color-primary, 16%);
+  }
+
+  &.success {
+    color: darken($color-success, 32%);
+    background-color: lighten($color-success, 16%);
+  }
+
+  &.warning {
+    color: darken($color-warning, 32%);
+    background-color: lighten($color-warning, 16%);
+  }
+
+  &.failure {
+    color: darken($color-failure, 32%);
+    background-color: lighten($color-failure, 16%);
+  }
+}

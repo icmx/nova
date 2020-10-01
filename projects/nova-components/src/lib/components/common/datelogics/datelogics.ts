@@ -114,8 +114,6 @@ export class DateLogic {
   public settings: CalendarSettings = null;
 
   public set value(value: any) {
-    console.log(value, this.settings ? this.settings.dateValueType : null);
-
     if (value) {
       switch (this.settings.dateValueType) {
         case 'internal':

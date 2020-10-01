@@ -4,10 +4,12 @@ Angular 2+ components library example. This was originally made in 2017-2018 mos
 
 Library includes:
 
+  - Banner
   - Button
   - Datepicker
   - Dropdown (with typeahead)
   - Field
   - Filedrop
-  - Menu, MenuItem
+  - Menu, Menu Item
   - Radio
+  - Table Sorting Indicator
