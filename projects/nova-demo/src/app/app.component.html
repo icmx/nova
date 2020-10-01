@@ -3,3 +3,14 @@
 <nova-checkbox></nova-checkbox>
 <hr />
 <nova-datepicker></nova-datepicker>
+<hr />
+<nova-dropdown
+  [suggestionsEnabled]="true"
+  [items]="[
+    { value: 0, label: 'Apple' },
+    { value: 1, label: 'Banana' },
+    { value: 2, label: 'Coconut' },
+    { value: 3, label: 'Dog' },
+    { value: 4, label: 'Elephant' }
+  ]"
+></nova-dropdown>

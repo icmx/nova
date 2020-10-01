@@ -1,0 +1,57 @@
+<div
+  #head
+  class="nova-dropdown--head"
+  (click)="toggleBody()"
+  [ngStyle]="headStyleOverrides"
+>
+  <div class="nova-dropdown--head--input">
+    <input
+      type="text"
+      (change)="catch($event)"
+      (input)="expandBodyOnKeyUp($event)"
+      [(ngModel)]="filterValue"
+      [class.readonly]="!suggestionsEnabled"
+      [attr.readonly]="!suggestionsEnabled ? true : null"
+      [attr.placeholder]="label"
+    />
+  </div>
+  <div
+    class="nova-dropdown--head--button icon-clear"
+    *ngIf="showClearButton"
+    (click)="clearItem($event)"
+  ></div>
+  <div
+    class="nova-dropdown--head--button icon-down"
+    *ngIf="showDownButton"
+  ></div>
+</div>
+<div
+  #body
+  class="nova-dropdown--body"
+  [class.expanded]="_expanded"
+  [ngStyle]="bodyStyleOverrides"
+>
+  <div class="nova-dropdown--body--list">
+    <div
+      class="nova-dropdown--body--list--item nova-dropdown--body--list--item-placeholder"
+      *ngIf="showStubholder"
+    >
+      {{ stubholder }}
+    </div>
+    <div
+      class="nova-dropdown--body--list--item nova-dropdown--body--list--item-stubholder"
+      *ngIf="showPlaceholder"
+      (click)="selectItem(null)"
+    >
+      {{ placeholder }}
+    </div>
+    <div
+      class="nova-dropdown--body--list--item"
+      *ngFor="let item of visibleItems"
+      [class.disabled]="item.locked"
+      (click)="selectItem(item)"
+    >
+      {{ item.label }}
+    </div>
+  </div>
+</div>

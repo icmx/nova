@@ -1,0 +1,211 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/resets.scss';
+@import '../../styles/units.scss';
+
+// NOTICE: Real <input> is now wrapped up into <div> because of Firefox
+// block/flex display bug
+
+.icon-clear {
+  background-size: 18px 18px;
+  background-image: url('../../assets/icons/nova-controls--dropdown-clear.svg');
+}
+
+.icon-down {
+  background-size: 24px 24px;
+  background-image: url('../../assets/icons/nova-controls--dropdown-down.svg');
+}
+
+:host {
+  display: inline-block;
+
+  font-family: $font-family;
+  font-size: $font-size;
+
+  width: 245px;
+  height: 48px;
+
+  user-select: none;
+
+  .nova-dropdown {
+    &--head {
+      display: inline-flex;
+      align-items: center;
+
+      border: solid 1px rgba($color: #000000, $alpha: 0.11);
+      border-radius: 4px;
+      width: 100%;
+
+      transition: border-color 0.2s;
+
+      &--input {
+        display: block;
+
+        width: 100%;
+        height: 48px;
+        flex-grow: 1;
+
+        input {
+          display: block;
+
+          width: 100%;
+          height: 100%;
+
+          border: none;
+          text-overflow: ellipsis;
+        }
+
+        input:hover,
+        input:focus,
+        input:active {
+          border: none;
+        }
+
+        input::placeholder {
+          color: rgba($color: #000000, $alpha: 0.44);
+        }
+
+        input.readonly {
+          cursor: pointer;
+        }
+      }
+
+      &--button {
+        display: block;
+
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+
+        border-radius: 4px;
+
+        transition: background-color 0.2s;
+        cursor: pointer;
+      }
+
+      &--button:hover {
+        background-color: $color-input-ghost-hover;
+      }
+
+      &--button:active {
+        background-color: $color-input-ghost-active;
+      }
+    }
+
+    &--head:hover {
+      border: solid 1px rgba($color: #000000, $alpha: 0.16);
+    }
+
+    &--body {
+      position: absolute;
+      padding: 4px 0 4px 0;
+
+      max-width: 40vw;
+
+      border: solid 1px $color-input-border;
+      border-radius: 4px;
+      background-color: $color-white;
+
+      box-shadow: $shadow-medium;
+
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1;
+
+      transform-origin: top;
+      margin-top: 8px;
+      margin-bottom: 16px;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px) scaleY(0.8);
+
+      &--list {
+        overflow-y: scroll;
+        max-height: 192px;
+        margin-top: -4px;
+        margin-bottom: -4px;
+
+        &--item {
+          min-width: 100px;
+          display: flex;
+          justify-content: space-between;
+          padding: 16px 12px;
+          cursor: pointer;
+
+          user-select: none;
+        }
+
+        &--item-stubholder {
+          color: rgba($color: #000000, $alpha: 0.44);
+        }
+
+        &--item-placeholder {
+          color: rgba($color: #000000, $alpha: 0.44);
+          cursor: not-allowed;
+        }
+
+        &--item:hover {
+          background-color: rgba($color: #000000, $alpha: 0.02);
+        }
+
+        &--item.disabled {
+          opacity: 0.44;
+          cursor: not-allowed;
+        }
+
+        &--item.disabled:hover {
+          background-color: transparent;
+        }
+
+        &--item.disabled:active {
+          pointer-events: none;
+        }
+      }
+    }
+
+    &--body.expanded {
+      opacity: 1;
+      pointer-events: unset;
+      transform: translateY(0px) scaleY(1);
+    }
+
+    &--body::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      transform: rotate(45deg);
+      background-color: $color-white;
+
+      border-top: solid 1px rgba(0, 0, 0, 0.22);
+      border-left: solid 1px rgba(0, 0, 0, 0.22);
+      top: -6px;
+      left: 18px;
+    }
+  }
+}
+
+:host[disabled='true'] {
+  pointer-events: none;
+  opacity: 0.44;
+
+  z-index: -1;
+  position: relative;
+}
+
+:host.ng-touched.ng-invalid {
+  .head {
+    border-color: $color-failure;
+  }
+}
+
+:host:hover.ng-touched.ng-invalid {
+  .head:hover {
+    border-color: $color-failure-light;
+  }
+}
