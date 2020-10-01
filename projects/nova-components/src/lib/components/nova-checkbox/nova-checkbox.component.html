@@ -1,0 +1,11 @@
+﻿<div class="nova-checkbox--checkbox" [class.checked]="value"></div>
+<div class="nova-checkbox--content">
+  <ng-content></ng-content>
+</div>
+<input
+  type="checkbox"
+  [attr.name]="name"
+  [attr.value]="value"
+  [(ngModel)]="value"
+  [hidden]="true"
+/>

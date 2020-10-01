@@ -1,0 +1,75 @@
+@import '../../styles/colors.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+
+  user-select: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+
+  & .nova-checkbox {
+    &--checkbox {
+      display: inline-block;
+      border-radius: 4px;
+      width: 48px;
+      min-width: 48px;
+      height: 48px;
+      min-height: 48px;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="%23575757"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: center;
+
+      transition: background-color 0.2s, background-size 0.08s;
+    }
+  }
+
+  &:hover .nova-checkbox {
+    &--checkbox {
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="%233f51b5"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+      background-color: $color-input-ghost-hover;
+    }
+  }
+
+  &:active .nova-checkbox {
+    &--checkbox {
+      background-color: $color-input-ghost-active;
+      background-size: 20px 20px;
+    }
+  }
+
+  & .nova-checkbox {
+    &--checkbox.checked {
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3Cpath d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="%233f51b5"/%3E%3C/svg%3E');
+    }
+  }
+
+  & .nova-checkbox {
+    &--content {
+      display: inline-block;
+      padding: 0 16px 0 8px;
+    }
+  }
+
+  &.disabled,
+  &[disabled='true'] {
+    opacity: 0.44;
+    pointer-events: none;
+
+    z-index: -1;
+    position: relative;
+  }
+
+  &.readony,
+  &[readonly='true'] {
+    .nova-checkbox {
+      &--checkbox {
+        pointer-events: none;
+        background-image: url('../../assets/icons/nova-controls--checkbox.svg');
+        background-size: 24px 24px;
+      }
+    }
+  }
+}
